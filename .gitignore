@@ -1,0 +1,35 @@
+# Unity
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+*.csproj
+!Tools/**/*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.unityproj
+*.pdb
+*.mdb
+*.apk
+*.aab
+*.unitypackage
+.vs/
+.vscode/
+.idea/
+.consulo/
+sysinfo.txt
+crashlytics-build.properties
+
+# .NET tools outside Unity
+Tools/**/bin/
+Tools/**/obj/
+TestResults/
