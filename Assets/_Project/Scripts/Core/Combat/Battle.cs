@@ -307,6 +307,26 @@ namespace Srpg.Core.Combat
             return list;
         }
 
+        // Enemies `u` could attack after moving to `from`.
+        public List<Unit> AttackTargetsFrom(Unit u, GridPos from)
+        {
+            var list = new List<Unit>();
+            foreach (var e in Units)
+                if (e.Side != u.Side && e.InFight && InRange(u.Weapon, from, e.Pos)) list.Add(e);
+            return list;
+        }
+
+        // Stunned or surrendered enemies `u` could pick up after moving to `from`.
+        public List<Unit> PickUpTargetsFrom(Unit u, GridPos from)
+        {
+            var list = new List<Unit>();
+            if (u.IsCarrying) return list;
+            foreach (var e in Units)
+                if (e.Side != u.Side && e.Capturable && from.Manhattan(e.Pos) == 1 && u.Stats.Bld >= e.Stats.Bld)
+                    list.Add(e);
+            return list;
+        }
+
         private void MoveUnit(Unit u, GridPos to)
         {
             if (to == u.Pos) return;
